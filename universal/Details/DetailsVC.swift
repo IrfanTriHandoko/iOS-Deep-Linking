@@ -16,7 +16,7 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.descLbl.text = "TIPE: \(self.data?.type ?? "")\nID: \(self.data?.id ?? "")"
+        self.descLbl.text = "TYPE: \(self.data?.type ?? "")\nID: \(self.data?.id ?? "")\nCATEGORY ID: \(self.data?.categoryId ?? "")"
     }
 
     override func didReceiveMemoryWarning() {

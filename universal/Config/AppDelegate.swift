@@ -12,31 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var urlUni: URL?
+    var univURL: URL?
     var notifData: NotifModel?
-    var parameters: [String: String] = [:]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // Mark: - Handle universal link when restart apps
-        if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] { // Universal link
-            var acceptedUrl: Bool?
+        if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
+            var acceptedURL: Bool?
             for key in activityDictionary.keys {
-                if let userActivity = activityDictionary[key] as? NSUserActivity, let url = userActivity.webpageURL {
-                    // Proceed url here
-                    acceptedUrl = self.proceedUniversalLink(url: url)
-                }
+                acceptedURL = self.proceedUniversalLink(dict: activityDictionary, key: key)
             }
-            if let url = urlUni, acceptedUrl == true{
+            if let url = self.univURL, acceptedURL == true{
                 self.handleUrl(url: url)
             }
         }
         return true
     }
     
-    func proceedUniversalLink(url: URL) -> Bool{
-        urlUni = url
-        return true
+    func proceedUniversalLink(dict: [AnyHashable: Any], key: AnyHashable) -> Bool {
+        if let userActivity = dict[key] as? NSUserActivity, let url = userActivity.webpageURL {
+            self.univURL = url
+            return true
+        } else {
+            return false
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -66,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if (url.scheme == "deep-link") { // Handle URL Scheme
+        if (url.scheme == "deep-link") {
             self.handleUrl(url: url)
         } 
         return false
@@ -87,18 +86,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // Mark: - Handle URL Scheme and Universal Links
 extension AppDelegate {
     
-    func handleUrl(url: URL){
+    func handleUrl(url: URL) {
+        var parameters: [String: String] = [:]
         // Handle url and open whatever page you want to open.
-        URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach{
+        URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
             parameters[$0.name] = $0.value
         }
         let type = url.path.replacingOccurrences(of: "/", with: "")
-        // Convert data to be model
-        self.notifData = NotifModel(id: parameters["id"], type: type, title: "", body: "", image: "")
-        self.handleDeepLink(data: self.notifData ?? NotifModel(id: "", type: "", title: "", body: "", image: ""))
+        // Convert url data to be model
+        self.notifData = NotifModel(type: type, id: parameters["id"], categoryId: parameters["categoryId"])
+        self.handleDeepLink(data: self.notifData ?? NotifModel(type: "", id: "", categoryId: ""))
     }
     
-    func handleDeepLink(data: NotifModel){
+    func handleDeepLink(data: NotifModel) {
         let story = UIStoryboard(name: "Notif", bundle: nil)
         let nav = story.instantiateInitialViewController() as? UINavigationController
         let vc = nav?.topViewController as! NotifVC

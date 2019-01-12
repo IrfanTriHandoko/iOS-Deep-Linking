@@ -9,9 +9,7 @@
 import Foundation
 
 struct NotifModel{
-    var id: String?
     var type: String?
-    var title: String?
-    var body: String?
-    var image: String?
+    var id: String?
+    var categoryId: String?
 }
