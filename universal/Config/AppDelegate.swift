@@ -12,29 +12,27 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var univURL: URL?
     var notifData: NotifModel?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if let activityDictionary = launchOptions?[UIApplicationLaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
-            var acceptedURL: Bool?
+            var acceptedURL: URL?
             for key in activityDictionary.keys {
                 acceptedURL = self.proceedUniversalLink(dict: activityDictionary, key: key)
             }
-            if let url = self.univURL, acceptedURL == true{
+            if let url = acceptedURL {
                 self.handleUrl(url: url)
             }
         }
         return true
     }
     
-    func proceedUniversalLink(dict: [AnyHashable: Any], key: AnyHashable) -> Bool {
+    func proceedUniversalLink(dict: [AnyHashable: Any], key: AnyHashable) -> URL? {
         if let userActivity = dict[key] as? NSUserActivity, let url = userActivity.webpageURL {
-            self.univURL = url
-            return true
+            return url
         } else {
-            return false
+            return URL(string: "")
         }
     }
 

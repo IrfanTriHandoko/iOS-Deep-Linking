@@ -14,7 +14,6 @@ class NotifVC: UIViewController {
     var isOpen = false
     var originRoot: UIViewController?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
