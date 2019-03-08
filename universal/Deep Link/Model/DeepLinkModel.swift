@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NotifModel{
+struct DeepLinkModel{
     var type: String?
     var id: String?
     var categoryId: String?

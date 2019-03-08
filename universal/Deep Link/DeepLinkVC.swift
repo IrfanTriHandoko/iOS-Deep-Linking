@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NotifVC: UIViewController {
+class DeepLinkVC: UIViewController {
     
-    var data: NotifModel!
+    var data: DeepLinkModel!
     var isOpen = false
     var originRoot: UIViewController?
     

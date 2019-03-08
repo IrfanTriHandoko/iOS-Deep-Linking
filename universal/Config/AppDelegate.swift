@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var notifData: NotifModel?
+    var deepLinkData: DeepLinkModel?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -62,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // Mark: - Handle URL Schemes
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if (url.scheme == "deep-link") {
             self.handleUrl(url: url)
@@ -92,14 +94,14 @@ extension AppDelegate {
         }
         let type = url.path.replacingOccurrences(of: "/", with: "")
         // Convert url data to be model
-        self.notifData = NotifModel(type: type, id: parameters["id"], categoryId: parameters["categoryId"])
-        self.handleDeepLink(data: self.notifData ?? NotifModel(type: "", id: "", categoryId: ""))
+        self.deepLinkData = DeepLinkModel(type: type, id: parameters["id"], categoryId: parameters["categoryId"])
+        self.handleDeepLink(data: self.deepLinkData ?? DeepLinkModel(type: "", id: "", categoryId: ""))
     }
     
-    func handleDeepLink(data: NotifModel) {
-        let story = UIStoryboard(name: "Notif", bundle: nil)
+    func handleDeepLink(data: DeepLinkModel) {
+        let story = UIStoryboard(name: "DeepLink", bundle: nil)
         let nav = story.instantiateInitialViewController() as? UINavigationController
-        let vc = nav?.topViewController as! NotifVC
+        let vc = nav?.topViewController as! DeepLinkVC
         vc.data = data
         vc.originRoot = self.window?.rootViewController
         self.window?.rootViewController = nav

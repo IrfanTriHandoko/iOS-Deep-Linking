@@ -11,7 +11,7 @@ import UIKit
 class DetailsVC: UIViewController {
 
     @IBOutlet weak var descLbl: UILabel!
-    var data: NotifModel?
+    var data: DeepLinkModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

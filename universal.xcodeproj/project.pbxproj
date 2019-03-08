@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0967040421BF72DF0056C6AD /* apple-app-site-association in Resources */ = {isa = PBXBuildFile; fileRef = 0967040321BF72DF0056C6AD /* apple-app-site-association */; };
-		0967040A21BFB7A90056C6AD /* NotifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967040921BFB7A90056C6AD /* NotifModel.swift */; };
-		0967040D21BFB82D0056C6AD /* NotifVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967040C21BFB82D0056C6AD /* NotifVC.swift */; };
+		0967040A21BFB7A90056C6AD /* DeepLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967040921BFB7A90056C6AD /* DeepLinkModel.swift */; };
+		0967040D21BFB82D0056C6AD /* DeepLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967040C21BFB82D0056C6AD /* DeepLinkVC.swift */; };
 		0967041021BFB8C60056C6AD /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967040F21BFB8C60056C6AD /* DetailsVC.swift */; };
 		0967041221BFB8D20056C6AD /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0967041121BFB8D20056C6AD /* Details.storyboard */; };
-		0967041421BFBAC80056C6AD /* Notif.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0967041321BFBAC80056C6AD /* Notif.storyboard */; };
+		0967041421BFBAC80056C6AD /* DeepLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0967041321BFBAC80056C6AD /* DeepLink.storyboard */; };
 		09A58C5721BA78C100C7DB22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A58C5621BA78C100C7DB22 /* AppDelegate.swift */; };
 		09A58C5921BA78C100C7DB22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A58C5821BA78C100C7DB22 /* ViewController.swift */; };
 		09A58C5C21BA78C100C7DB22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A58C5A21BA78C100C7DB22 /* Main.storyboard */; };
@@ -22,11 +22,11 @@
 
 /* Begin PBXFileReference section */
 		0967040321BF72DF0056C6AD /* apple-app-site-association */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "apple-app-site-association"; sourceTree = "<group>"; };
-		0967040921BFB7A90056C6AD /* NotifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifModel.swift; sourceTree = "<group>"; };
-		0967040C21BFB82D0056C6AD /* NotifVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifVC.swift; sourceTree = "<group>"; };
+		0967040921BFB7A90056C6AD /* DeepLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkModel.swift; sourceTree = "<group>"; };
+		0967040C21BFB82D0056C6AD /* DeepLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkVC.swift; sourceTree = "<group>"; };
 		0967040F21BFB8C60056C6AD /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		0967041121BFB8D20056C6AD /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
-		0967041321BFBAC80056C6AD /* Notif.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notif.storyboard; sourceTree = "<group>"; };
+		0967041321BFBAC80056C6AD /* DeepLink.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeepLink.storyboard; sourceTree = "<group>"; };
 		09A58C5321BA78C100C7DB22 /* universal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = universal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A58C5621BA78C100C7DB22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A58C5821BA78C100C7DB22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 				09A58C5A21BA78C100C7DB22 /* Main.storyboard */,
 				09A58C5F21BA78C300C7DB22 /* LaunchScreen.storyboard */,
 				0967041121BFB8D20056C6AD /* Details.storyboard */,
-				0967041321BFBAC80056C6AD /* Notif.storyboard */,
+				0967041321BFBAC80056C6AD /* DeepLink.storyboard */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -80,18 +80,18 @@
 		0967040821BFB7880056C6AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0967040921BFB7A90056C6AD /* NotifModel.swift */,
+				0967040921BFB7A90056C6AD /* DeepLinkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0967040B21BFB7DB0056C6AD /* Notif */ = {
+		0967040B21BFB7DB0056C6AD /* Deep Link */ = {
 			isa = PBXGroup;
 			children = (
 				0967040821BFB7880056C6AD /* Model */,
-				0967040C21BFB82D0056C6AD /* NotifVC.swift */,
+				0967040C21BFB82D0056C6AD /* DeepLinkVC.swift */,
 			);
-			path = Notif;
+			path = "Deep Link";
 			sourceTree = "<group>";
 		};
 		0967040E21BFB8B60056C6AD /* Details */ = {
@@ -124,7 +124,7 @@
 				09A58C6821BA78FC00C7DB22 /* universal.entitlements */,
 				09A58C6221BA78C300C7DB22 /* Info.plist */,
 				0967040721BFB7210056C6AD /* Home */,
-				0967040B21BFB7DB0056C6AD /* Notif */,
+				0967040B21BFB7DB0056C6AD /* Deep Link */,
 				0967040E21BFB8B60056C6AD /* Details */,
 				0967040621BFB7050056C6AD /* Config */,
 				0967040521BFB6F60056C6AD /* Assets */,
@@ -200,7 +200,7 @@
 				09A58C5E21BA78C300C7DB22 /* Assets.xcassets in Resources */,
 				0967040421BF72DF0056C6AD /* apple-app-site-association in Resources */,
 				09A58C5C21BA78C100C7DB22 /* Main.storyboard in Resources */,
-				0967041421BFBAC80056C6AD /* Notif.storyboard in Resources */,
+				0967041421BFBAC80056C6AD /* DeepLink.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +212,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A58C5921BA78C100C7DB22 /* ViewController.swift in Sources */,
-				0967040D21BFB82D0056C6AD /* NotifVC.swift in Sources */,
-				0967040A21BFB7A90056C6AD /* NotifModel.swift in Sources */,
+				0967040D21BFB82D0056C6AD /* DeepLinkVC.swift in Sources */,
+				0967040A21BFB7A90056C6AD /* DeepLinkModel.swift in Sources */,
 				09A58C5721BA78C100C7DB22 /* AppDelegate.swift in Sources */,
 				0967041021BFB8C60056C6AD /* DetailsVC.swift in Sources */,
 			);
